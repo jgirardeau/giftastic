@@ -22,38 +22,63 @@
 
     <div class="container">
         <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10" id="buttons">
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1">
+            </div>
             <div class="col-md-4">
+                <button id="addTrek" class="btn btn-primary">Add Another Star Trek Item</button>
+            </div>
+            <div class="col-md-5">
+                <input type="text" id="input_text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" style="float">
             </div>
             <div class="col-md-2">
             </div>
         </div>
         <div class="row">
-            <div class="col-md-2">
-               
+            <div class="col-md-1">
             </div>
-            <div class="col-md-8" id="questions">
+            <div class="col-md-10" id="giphys">
             </div>
-            <div class="col-md-2">
-              
+            <div class="col-md-1">
             </div>
         </div>
-        <div class="row" class="last_row">
-            <div class="col-md-4">
+        <div class="row">
+            <div class="col-md-1">
             </div>
-           
+            <div class="col-md-10">
+                <br>
+                <br>
+                <br>
+            </div>
+            <div class="col-md-1">
+            </div>
         </div>
-        <div class="col-md-2">
-        </div>
-
-
     </div>
-    </div>
 
-<script>
-	var topic="star trek";
-	var items=["kirk","spock","scotty","uhuru","checkov","khan","mccoy","sulu","data","worf","riker","troi","crusher","geordi","sulu"];
+    <script>
+        var topic = "star trek";
+        var items = ["kirk", "spock", "scotty", "uhuru", "checkov", "khan", "mccoy", "sulu", "data", "worf", "riker", "troi", "crusher", "geordi", "sulu"];
 
-</script>
+        function create_html() {
+            items.forEach(function(value) {
+                var new_button = $("<button>");
+                new_button.text(value);
+                new_button.addClass("trek btn btn-primary")
+                $("#buttons").append(new_button);
+
+            });
+
+
+        }
+        create_html();
+    </script>
 </body>
 
 </html>
