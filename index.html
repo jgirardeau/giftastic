@@ -33,7 +33,7 @@
             <div class="col-md-1">
             </div>
             <div class="col-md-4">
-                <button id="addTrek" class="btn btn-primary">Add Another Star Trek Item</button>
+                <button id="addTrek" class="addTrek btn btn-primary">Add Another Star Trek Item</button>
             </div>
             <div class="col-md-5">
                 <input type="text" id="input_text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" style="float">
@@ -66,18 +66,20 @@
         var topic = "star trek";
         var items = ["kirk", "spock", "scotty", "uhuru", "checkov", "khan", "mccoy", "sulu", "data", "worf", "riker", "troi", "crusher", "geordi", "sulu"];
 
-        function create_html() {
-            items.forEach(function(value) {
-                var new_button = $("<button>");
-                new_button.text(value);
-                new_button.addClass("trek btn btn-primary")
-                $("#buttons").append(new_button);
+        items.forEach(function(value) {
+            var new_button = $("<button>");
+            new_button.text(value);
+            new_button.addClass("trek btn btn-primary")
+            $("#buttons").append(new_button);
+        });
 
-            });
-
-
-        }
-        create_html();
+        $(".trek").click(function() {
+            alert("hello");
+            console.log(this);
+        });
+        $(".addTrek").click(function() {
+            console.log(this);
+        });
     </script>
 </body>
 
