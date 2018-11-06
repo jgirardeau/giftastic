@@ -63,6 +63,7 @@
     </div>
 
     <script>
+        var myglobal;
         var topic = "star trek";
         var items = ["kirk", "spock", "scotty", "uhuru", "checkov", "khan", "mccoy", "sulu", "data", "worf", "riker", "troi", "crusher", "geordi", "sulu"];
 
@@ -72,13 +73,16 @@
             new_button.addClass("trek btn btn-primary")
             $("#buttons").append(new_button);
         });
-
-        $(".trek").click(function() {
-            alert("hello");
-            console.log(this);
+        $(document).on('click', '.trek', function() {
+            console.log(this.innerText);
         });
         $(".addTrek").click(function() {
-            console.log(this);
+            var newItem = $("#input_text").val();
+            // console.log(newItem);
+            var new_button = $("<button>");
+            new_button.text(newItem);
+            new_button.addClass("trek btn btn-primary")
+            $("#buttons").append(new_button);
         });
     </script>
 </body>
