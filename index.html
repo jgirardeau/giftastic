@@ -91,12 +91,12 @@
         });
         $(".trek").on("click", function() {
             event.preventDefault();
-            console.log(this)
+            // console.log(this)
             var person = $(this).text();
             // var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
             //     person + "&api_key=dc6zaTOxFJmzC&limit=10";
             var queryURL = 'http://api.giphy.com/v1/gifs/search?q=star trek ' + person + '&api_key=dc6zaTOxFJmzC&limit=10';
-            console.log(queryURL);
+            // console.log(queryURL);
 
             $.ajax({
                     url: queryURL,
@@ -115,9 +115,12 @@
 
                         var personImage = $("<img>");
                         personImage.attr("src", results[i].images.fixed_width_still.url);
+                        personImage.attr("still", results[i].images.fixed_width_still.url);
+                        personImage.attr("move", results[i].images.fixed_width_still.url);
+                        personImage.attr("moving", "0");
 
-                        gifDiv.prepend(p);
-                        gifDiv.prepend(personImage);
+                        gifDiv.append(p);
+                        gifDiv.append(personImage);
 
                         $("#giphys").prepend(gifDiv);
                     }
