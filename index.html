@@ -17,7 +17,7 @@
     <div class="jumbotron jumbotron-fluid" id="jumbo">
         <div class="container">
             <h1 class="display-4" id="space_trivia">Star Trek</h1>
-            <h3>Giphys -- click to see</h3>
+            <!-- <h3>Giphys -- click to see</h3> -->
         </div>
     </div>
 
@@ -89,7 +89,8 @@
             }
             $("#input_text").val("");
         });
-        $(".trek").on("click", function() {
+        // $(".trek").on("click", function() {
+        $(document).on('click', '.trek', function() {
             event.preventDefault();
             // console.log(this)
             var person = $(this).text();
