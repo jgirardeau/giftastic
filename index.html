@@ -17,7 +17,6 @@
     <div class="jumbotron jumbotron-fluid" id="jumbo">
         <div class="container">
             <h1 class="display-4" id="space_trivia">Star Trek</h1>
-            <!-- <h3>Giphys -- click to see</h3> -->
         </div>
     </div>
 
@@ -63,71 +62,8 @@
         </div>
     </div>
 
-    <script>
-        var myglobal;
-        var topic = "star trek";
-        var items = ["kirk", "spock", "scotty", "uhuru", "checkov", "khan", "mccoy", "sulu", "data", "worf", "riker", "troi", "crusher", "geordi", "sulu"];
+    <script src="assets/javascript/game.js"></script>
 
-        items.forEach(function(value) {
-            var new_button = $("<button>");
-            new_button.text(value);
-            new_button.addClass("trek btn btn-primary")
-            $("#buttons").append(new_button);
-        });
-
-        $(".addTrek").click(function() {
-            event.preventDefault();
-            var newItem = $("#input_text").val();
-            // console.log(newItem);
-            var new_button = $("<button>");
-            new_button.text(newItem);
-            new_button.addClass("trek btn btn-primary");
-            var indx = parseInt(items.indexOf(newItem));
-            if (indx == -1) {
-                $("#buttons").append(new_button);
-                items.push(newItem);
-            }
-            $("#input_text").val("");
-        });
-        // $(".trek").on("click", function() {
-        $(document).on('click', '.trek', function() {
-            event.preventDefault();
-            // console.log(this)
-            var person = $(this).text();
-            // var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-            //     person + "&api_key=dc6zaTOxFJmzC&limit=10";
-            var queryURL = 'http://api.giphy.com/v1/gifs/search?q=star trek ' + person + '&api_key=dc6zaTOxFJmzC&limit=10';
-            // console.log(queryURL);
-
-            $.ajax({
-                    url: queryURL,
-                    method: "GET"
-                })
-                .then(function(response) {
-                    var results = response.data;
-                    console.log(results)
-
-                    for (var i = 0; i < results.length; i++) {
-                        var gifDiv = $("<div>");
-
-                        var rating = results[i].rating;
-
-                        var p = $("<p>").text("Rating: " + rating);
-
-                        var personImage = $("<img>");
-                        personImage.attr("src", results[i].images.fixed_width_still.url);
-                        personImage.attr("still", results[i].images.fixed_width_still.url);
-                        personImage.attr("move", results[i].images.fixed_width_still.url);
-                        personImage.attr("moving", "0");
-
-                        gifDiv.append(p);
-                        gifDiv.append(personImage);
-
-                        $("#giphys").prepend(gifDiv);
-                    }
-                });
-        });
-    </script>
 </body>
 
 </html>
